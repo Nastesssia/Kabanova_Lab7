@@ -18,7 +18,7 @@ namespace Kabanova_Lab7
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+   public partial class MainWindow : Window
     {
         private List<double> list;
         public MainWindow()
@@ -35,7 +35,8 @@ namespace Kabanova_Lab7
             string str = "";
             for (int i = 0; i < n; i++)
             {
-                list.Add(random.NextDouble() * 100);
+
+                list.Add(random.Next(-100,101));
                 str += $"{list[i]:F2} ";
             }
             Result.Text = str;
@@ -43,42 +44,12 @@ namespace Kabanova_Lab7
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            for(int i = 0; i < list.Count; i++)
-            {
-                if (list[0] > 0)
-                {
-                    list.Insert(i, list[0]);
-
-                }
-            }
-            string str = "";
-            for (int i = 0; i < list.Count; i++)
-            {
-                str += $"{list[i]:F2} ";
-            }
-            Result.Text = str;
-
-            //double S = 0;
-            //foreach (double i in list)
-            //{
-            //    S += i;
-            //}
-            //double avg = S / list.Count;
-            //for (int i = 0; i < list.Count; i++)
-            //{
-            //    if (list[i] > avg)
-            //    {
-            //        list.Insert(i, 11);
-            //        i++;
-            //    }
-
-            //}
-            //string str = "";
-            //for (int i = 0; i < list.Count; i++)
-            //{
-            //    str += $"{list[i]:F2} ";
-            //}
-            //Result.Text = str;
+            var res = list.FirstOrDefault();
+            if (res > 0) 
+                Res2.Text = $"{res:F2}".ToString();
+            else
+                Result.Text = "";
+            
         }
     }
 }
